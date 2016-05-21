@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mediator</title>
+<!-- build:css styles/main.css -->
+<link rel="stylesheet" type="text/css" href="styles/main.css">
+<!-- endbuild -->
+</head>
+<body>
+
+	<h1>Chat</h1>
+	<form id="charForm">
+		<label for="fromBox">Your Name:</label>
+		<input id="fromBox" type="text">
+		<br>
+		<label for="toBox">Send To:</label>
+		<input id="toBox" type="text">
+		<br>
+		<label for="chatBox">Message:</label>
+		<input id="chatBox" type="text">
+		<br>
+		<button actioc="submit">Chat</button>
+	</form>
+	
+	<div id="chatResult"></div>
+
+	<!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/underscore/underscore.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+	<script src="scripts/mediator/mediator_core.js"></script>
+	<script src="scripts/mediator/demo1.js"></script>
+
+</body>
+</html>
