@@ -2,7 +2,7 @@
 * @Author: ocean_deng
 * @Date:   2016-04-10 16:44:41
 * @Last Modified by:   ocean_deng
-* @Last Modified time: 2016-04-10 16:45:01
+* @Last Modified time: 2016-09-11 17:42:03
 */
 
 // Mediator 的简单实现原理 S
@@ -16,7 +16,7 @@ var mediator = (function(){
 		if(!topics[topic]){
 			topics[topic] = [];
 		}
-		topics[topic].push({cotext: this, callback: fn});
+		topics[topic].push({context: this, callback: fn});
 
 		return this;
 	};
@@ -239,4 +239,4 @@ var mediator = (function(){
 
 })(window);
 
-// Mediator 高级实现 S
+// Mediator 高级实现 E
