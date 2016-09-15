@@ -68,3 +68,48 @@ Insurance(mb);
 
 console.log(mb.cost());
 console.log(mb.screenSize());
+
+
+// jQuery的装饰者
+
+var decoratorApp = decoratorApp || {};
+
+// 定义要使用的对象
+decoratorApp = {
+
+	defaults: {
+		validate: false,
+		limit: 5,
+		name: "foo",
+		welcome: function(){
+			console.log('welcome!');
+		}
+	},
+	options: {
+		validate: true,
+		name: "bar",
+		helloWorld: function(){
+			console.log('hello world');
+		}
+	},
+	settings: {},
+	printObj: function(obj){
+		var arr = [],
+			next;
+
+		$.each(obj, function(key, val){
+			next = key + ': ';
+			next += $.isPlainObject(val) ? printObj(val) : val;
+			arr.push(next);
+		});
+
+		return '{ ' + arr.join(', ') + ' }';
+	}
+};
+
+// 合并defaults和options, 没有显式修改defaults
+decoratorApp.settings = $.extend({}, decoratorApp.defaults, decoratorApp.options);
+
+$('#log').append(decoratorApp.printObj(decoratorApp.settings) + 
+				decoratorApp.printObj(decoratorApp.options) +
+				decoratorApp.printObj(decoratorApp.defaults));
