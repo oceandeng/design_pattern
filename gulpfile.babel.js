@@ -7,7 +7,7 @@ import {stream as wiredep} from 'wiredep';
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
-const app = "high-proformance";
+const app = "app";
 
 gulp.task('styles', () => {
   return gulp.src(app + '/styles/*.scss')
