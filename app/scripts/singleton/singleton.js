@@ -1,8 +1,8 @@
 /*
 * @Author: ocean_deng
 * @Date:   2016-09-16 18:27:26
-* @Last Modified by:   ocean_deng
-* @Last Modified time: 2016-09-16 18:41:44
+* @Last Modified by:   denghaiyang
+* @Last Modified time: 2017-01-20 10:14:32
 */
 
 'use strict';
@@ -97,3 +97,47 @@ var singletonTest = SingletonTester.getInstance({
 
 console.log(singletonTest.pointX);
 console.log(singletonTest.pointY);
+
+
+/*
+ * singleton 单体
+ */
+
+var mySingleton = (function(){
+
+	// 实例存储了该单体的引用
+	var instance;
+	function init(){
+		// 单体
+		// 私有方法和变量
+		function privateMethod(){
+			console.log('I am private')
+		}
+
+		var privateVariable = 'I`m also private'
+		var privateRandomNumber = Math.random();
+
+		return {
+			// 公有方法和变量
+			publicMethod: function(){
+				console.log('The public can see me!')
+			},
+			publicProperty: 'I am also public',
+			getRandomNumber: function(){
+				return privateRandomNumber
+			}
+		}
+
+	}
+
+	return {
+		// 如果存在的话，就获取该单体实例
+		// 如果存在的话，就创建一个单体实例
+		getInstance: function(){
+			if(!instance){
+				instance = init()
+			}
+			return instance
+		}		
+	}
+})()
