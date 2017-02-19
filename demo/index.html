@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// 位掩码
+		var OPTION_A = 1;
+		var OPTION_B = 2;
+		var OPTION_C = 4;
+		var OPTION_D = 8;
+		var OPTION_E = 16;
+
+		var options = OPTION_A | OPTION_C | OPTION_D
+
+		console.log(options & OPTION_A)
+		console.log(options & OPTION_B)
+	</script>
+
+	<script>
+		var Timer = {
+			_data: {},
+
+			start: function(key){
+				Timer._data[key] = new Date()
+			},
+			stop: function(key){
+				var time = Timer._data[key]
+				if(time){
+					Timer._data[key] = new Date() - time
+				}
+			},
+			getTime: function(key){
+				return Timer._data[key]
+			}
+		}
+
+		var count = 1000;
+		var element = null;
+
+		Timer.start('createElement')
+		for(var i = 0; i < count; i++){
+			element = document.createElement('div')
+		}
+		Timer.stop('createElement')
+		Timer.getTime('createElement')
+	</script>
+</body>
+</html>

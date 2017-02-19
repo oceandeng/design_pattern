@@ -2,7 +2,7 @@
 * @Author: ocean_deng
 * @Date:   2016-04-10 16:44:41
 * @Last Modified by:   ocean_deng
-* @Last Modified time: 2016-09-11 17:42:03
+* @Last Modified time: 2017-02-19 21:09:47
 */
 
 // Mediator 的简单实现原理 S
@@ -50,8 +50,8 @@ var mediator = (function(){
 })();
 // Mediator 的简单实现原理 E
 
-// Mediator 高级实现 S
 
+// Mediator 高级实现 S
 // 将context上下文传递给订阅者，默认上下文是window对象
 (function(root){
 
