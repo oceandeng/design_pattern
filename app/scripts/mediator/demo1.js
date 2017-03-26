@@ -15,7 +15,7 @@ function displayChat(data){
 	var date = new Date(),
 		msg = data.from + " said\"" + data.message + "\" to " + data.to;
 
-	$("#chatResult").prepend("" + msg + "(" + date.toLocaleTimeString() + ")"); 
+	$("#chatResult").prepend("" + msg + "(" + date.toLocaleTimeString() + ")");
 }
 
 // 记录消息日志

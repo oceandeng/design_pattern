@@ -2,7 +2,7 @@
 * @Author: ocean_deng
 * @Date:   2016-04-10 16:44:41
 * @Last Modified by:   ocean_deng
-* @Last Modified time: 2017-02-19 21:09:47
+* @Last Modified time: 2017-02-24 13:13:56
 */
 
 // Mediator 的简单实现原理 S
@@ -23,7 +23,7 @@ var mediator = (function(){
 
 	// 发布/广播事件到程序的剩余部分
 	var publish = function(topic){
-		
+
 		var args;
 
 		if(!topics[topic]){
