@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title></title>
+</head>
+
+<body>
+
+    <div id="container"></div>
+
+    <script src="/bower_components/jquery/dist/jquery.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        var width = $(window).width(),
+            height = $(window).height(),
+            countdown = 20,
+            countup = 0;
+
+        var nextElement = function() {
+            if (countdown == 0) {
+                gameOver()
+                return
+            }
+            var x = Math.random() * (width - 50),
+                y = Math.random() * (height - 50);
+
+            $('<div>').css({
+                position: 'absolute',
+                left: x,
+                top: y,
+                width: 50,
+                height: 50,
+                backgroundColor: 'red'
+            }).appendTo('#container')
+            countdown--
+        }
+        var gameOver = function() {
+            // stop additional nextElement calls from firing
+            clearInterval(timer)
+            if (countup > 15) {
+                alert('You Win!')
+            } else {
+                alert('You Lose!')
+            }
+        }
+        var timer = setInterval(nextElement, 500)
+        $('#container').on('mousedown', 'div', function(e) {
+            countup++
+            $(this).fadeOut()
+        })
+    </script>
+
+</body>
+
+</html>

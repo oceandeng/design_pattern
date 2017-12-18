@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="./styles/base.css">
+    <script src="/bower_components/jquery/dist/jquery.min.js" charset="utf-8"></script>
+</head>
+
+<body>
+    <div id="container">
+        <canvas id="game" width="480" height="480"></canvas>
+    </div>
+
+    <script type="text/javascript">
+        // Wait for the document.ready callback
+        $(function() {
+            var maxWidth = 480,
+                maxHeight = 440;
+
+            var handleResize = function() {
+                // Get the window width and height
+                var w = window.innerWidth ||
+                    window.document.documentElement.clientWidth ||
+                    window.document.body.clientWidth;
+                var h = window.innerHeight ||
+                    window.document.documentElement.clientHeight ||
+                    window.document.body.clientHeight;
+
+                if (w < maxWidth) {
+                    $("#container").css('width', 'auto')
+                    $("#game").css({
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        zIndex: 10000
+                    }).attr({
+                        width: w,
+                        height: Math.min(h, maxHeight)
+                    })
+                }
+            }
+
+            handleResize()
+        })
+    </script>
+</body>
+
+</html>
